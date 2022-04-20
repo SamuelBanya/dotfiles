@@ -1,0 +1,12 @@
+# Load 'xrandr' settings from 'arandr', aka the 2 monitor setup by default:
+~/.screenlayout/TwoMonitorsSideBySideWithoutMiddleLaptopScreen.sh
+
+# Load a new random wallpaper with 'pywal':
+wal -i ~/hub/wallpapers/
+
+# Use `xrdb' accordingly to load urxvt correctly:
+xrdb ~/.Xresources
+
+# From this GitHub project:
+# https://github.com/addy-dclxvi/Tint2-Theme-Collections
+tint2 

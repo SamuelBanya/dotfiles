@@ -1,0 +1,82 @@
+! NOTE: This is the keybinding to reload xterm config
+! xrdb -load ~/.Xresources
+
+! special
+*.foreground:   #e4dedc
+*.background:   #020202
+*.cursorColor:  #e4dedc
+
+! black
+*.color0:       #040403
+*.color8:       #f0a1ca
+
+! red
+*.color1:       #151211
+*.color9:       #fd941d
+
+! green
+*.color2:       #292422
+*.color10:      #efa97d
+
+! yellow
+*.color3:       #443c39
+*.color11:      #869545
+
+! blue
+*.color4:       #655b56
+*.color12:      #ac88f1
+
+! magenta
+*.color5:       #8f807a
+*.color13:      #849625
+
+! cyan
+*.color6:       #beaca4
+*.color14:      #b0c551
+
+! white
+*.color7:       #e7e1df
+*.color15:      #39c69b
+
+! Font Sizes
+XTerm*faceName: Hack
+XTerm*faceSize: 18
+
+! VT Font Menu: Unreadable
+Xterm*faceSize1: 8
+! VT font menu: Tiny
+Xterm*faceSize2: 10
+! VT font menu: Medium
+Xterm*faceSize3: 12
+! VT font menu: Large
+Xterm*faceSize4: 16
+! VT font menu: Huge
+Xterm*faceSize5: 22
+
+! Other Adjustments
+Xterm*scrollBar: false
+
+! Enable blinking cursor:
+XTerm*cursorBlink: true
+
+! Enable scrollback lines:
+XTerm*saveLines: 16384
+
+!! Keybinding ========================================================
+! http://blog.rot13.org/2010/03/change-font-size-in-xterm-using-keyboard.html
+! - change fontsize on the fly (ctrl+plus = increase ; ctrl+minus = decrease, ctrl+0 = default)
+XTerm.vt100.translations: #override \n\
+  Ctrl <Key> minus: smaller-vt-font() \n\
+  Ctrl <Key> plus: larger-vt-font() \n\
+  Ctrl <Key> 0: set-vt-font(d)
+
+! double-click to select whole URLs :D
+! https://scarygliders.net/2011/12/01/customize-xterm-the-original-and-best-terminal/
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+! Fix the backspace key (for Emacs)
+XTerm.vt100.backarrowKey: false
+
+! Ensure that your locale is set up for UTF-8. If you do not use UTF-8, you may need to force xterm to more strictly follow your locale by setting
+XTerm.vt100.locale: true
+

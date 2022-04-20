@@ -1,0 +1,80 @@
+! special
+*.foreground:   #e4dedc
+*.background:   #020202
+*.cursorColor:  #e4dedc
+
+! black
+*.color0:       #040403
+*.color8:       #f0a1ca
+
+! red
+*.color1:       #151211
+*.color9:       #fd941d
+
+! green
+*.color2:       #292422
+*.color10:      #efa97d
+
+! yellow
+*.color3:       #443c39
+*.color11:      #869545
+
+! blue
+*.color4:       #655b56
+*.color12:      #ac88f1
+
+! magenta
+*.color5:       #8f807a
+*.color13:      #849625
+
+! cyan
+*.color6:       #beaca4
+*.color14:      #b0c551
+
+! white
+*.color7:       #e7e1df
+*.color15:      #39c69b
+
+! Font Sizes
+! Note: Because we are using font size based extensions later on,
+! set this to the max font size value you want to see on screen
+! The following is for 'Just Werks' machine setups:
+! Previous font size: 18
+urxvt.font: xft:Inconsolata:pixelsize=24
+! urxvt.font: xft:Hack:pixelsize=24
+
+! Other Adjustments
+URxvt.scrollBar: false
+
+! Extensions
+! Use this GitHub page if you are ever transferring the perl based
+! extension to a different computer:
+! https://github.com/simmel/urxvt-resize-font
+urxvt.perl-ext-common: default,resize-font
+
+! Keybindings
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+
+! Font Size Adjustments:
+URxvt.resize-font.step: 2
+
+! Transparency for urxvt:
+URxvt.depth: 32
+URxvt.transparent: true
+URxvt.tintColor: white
+! Set .shading to: 20 for slight transparency
+! Set .shading to: 30 for midway transparency 
+! Set .shading to: 40 for fuller transparency
+! Set .shading to: 60 for normalish-fuller transparency
+! Set .shading to: 70 for much-fuller transparency
+URxvt.shading: 60
+! Urxvt.background: [50]#000000
+
+! Changing Font Sizes With C-0, C-+, and C-=:
+! :Bind C-0, C-+ and C-= to activate small, medium, and big font size resp.     
+! URxvt.keysym.C-0: command:\033]710;-*-Inconsolata-medium-r-normal--13-*-*-*-*-*-*-*\007
+! URxvt.keysym.C-minus: command:\033]710;-*-Inconsolata-medium-r-normal--15-*-*-*-*-*-*-*\007
+! URxvt.keysym.C-equal: command:\033]710;-*-Inconsolata-medium-r-normal--16-*-*-*-*-*-*-*\007

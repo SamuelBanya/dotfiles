@@ -1,0 +1,3 @@
+defaults.pcm.!card LX3000
+defaults.ctl.!card LX3000
+defaults.pcm.!device 0
