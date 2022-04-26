@@ -667,48 +667,6 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
 
     (global-set-key (kbd "C-$") 'hydra-desktop/body)
 #+end_src
-*** Force zoom-in factor to be the same for all buffers when zooming in and out
-#+begin_src emacs-lisp
-  ;; Taken from here:
-  ;; https://stackoverflow.com/questions/18783227/emacs-zoom-in-out-globally
-  (defadvice text-scale-increase (around all-buffers (arg) activate)
-    (dolist (buffer (buffer-list))
-      (with-current-buffer buffer
-        ad-do-it)))
-#+end_src
-** Terminal
-*** Add 'libvterm' to replace 'ansi-term' for better compatibility for ncurses terminal programs
-#+BEGIN_SRC emacs-lisp
-  (use-package vterm
-    :ensure t
-    :config
-    (setq vterm-shell "/bin/bash"))
-
-  ;; Taken from this GitHub post:
-  ;; https://github.com/akermu/emacs-libvterm/issues/376
-  ;; Loop through '/usr/local/bin/bash' or '/bin/bash' to find the bash shell and set the 'SHELL' environment variable accordingly
-  (cl-loop for file in '("/usr/local/bin/bash" "/bin/bash")
-	   when (file-exists-p file)
-	   do (progn
-		(setq shell-file-name file)
-		(cl-return)))
-  (setenv "SHELL" shell-file-name)
-#+END_SRC
-*** Force 'vterm-max-scrollback' variable to have 100,000 lines of scrollback for easier log viewing in 'vterm'
-#+begin_src emacs-lisp
-  (setq vterm-max-scrollback 100000)
-#+end_src
-** Git
-*** 'magit' to make Git 10x easier to use
-#+BEGIN_SRC emacs-lisp
-  (use-package magit
-    :ensure t
-    :config
-    (setq magit-push-always-verify nil)
-    (setq git-commit-summary-max-length 50)
-    :bind
-    ("M-g" . magit-status))
-#+END_SRC
 ** Programming
 *** Add 'emmet-mode' to make HTML editing easier
 #+BEGIN_SRC emacs-lisp
@@ -787,7 +745,8 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
 #+end_src
 *** Add 'json-mode' for support for .json files
 #+begin_src emacs-lisp
-  (use-package json-mode)
+  (use-package json-mode
+    :ensure t)
   (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.esdoc\\.json\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.*\\.json\\'" . json-mode))
