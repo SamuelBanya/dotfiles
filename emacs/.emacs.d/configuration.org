@@ -667,6 +667,13 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
 
     (global-set-key (kbd "C-$") 'hydra-desktop/body)
 #+end_src
+** Terminal
+*** Add 'vterm' to enable only decent Emacs terminal
+#+begin_src emacs-lisp
+  (use-package vterm
+    :ensure t)
+#+end_src
+
 ** Programming
 *** Add 'magit' for making dealing with Git repositories easier
 #+begin_src emacs-lisp
