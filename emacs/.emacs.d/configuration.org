@@ -668,6 +668,11 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
     (global-set-key (kbd "C-$") 'hydra-desktop/body)
 #+end_src
 ** Programming
+*** Add 'magit' for making dealing with Git repositories easier
+#+begin_src emacs-lisp
+  (use-package magit
+    :ensure t)
+#+end_src
 *** Add 'emmet-mode' to make HTML editing easier
 #+BEGIN_SRC emacs-lisp
   (use-package emmet-mode
@@ -742,14 +747,6 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
   (setq-default web-mode-code-indent-offset 2)
   (setq-default web-mode-markup-indent-offset 2)
   (setq-default web-mode-attribute-indent-offset 2))
-#+end_src
-*** Add 'json-mode' for support for .json files
-#+begin_src emacs-lisp
-  (use-package json-mode
-    :ensure t)
-  (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
-  (add-to-list 'auto-mode-alist '("\\.esdoc\\.json\\'" . json-mode))
-  (add-to-list 'auto-mode-alist '("\\.*\\.json\\'" . json-mode))
 #+end_src
 *** Add 'yaml-mode' for support for '.yaml' files
 #+begin_src emacs-lisp
