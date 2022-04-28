@@ -254,6 +254,7 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
   ;; _C-c C-p C-p_: add the selected region or buffer to an online webpaste, specifically at dpaste.org
   ;; _C-c s_: search for a specific issue on Stack Exchange aka StackOverflow
   ;; _M-x ytdl_: download YouTube videos directly from Emacs
+  ;; _C-c m_: enable Org-Menu to discover keybindings in Org Mode
   ;; "
   ;;   ("q" nil))
 
@@ -877,6 +878,11 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
 *** Add 'free-keys' to determine the free keybindings present currently available in Emacs
 #+begin_src emacs-lisp
   (use-package free-keys
+    :ensure t)
+#+end_src
+*** Add 'org-menu' to discover keybindings in 'Org Mode' with 'C-c m'
+#+begin_src emacs-lisp
+  (use-package org-menu
     :ensure t)
 #+end_src
 ** Helm Related Packages
