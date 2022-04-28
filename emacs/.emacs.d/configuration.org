@@ -880,11 +880,6 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
   (use-package free-keys
     :ensure t)
 #+end_src
-*** Add 'org-menu' to discover keybindings in 'Org Mode' with 'C-c m'
-#+begin_src emacs-lisp
-  (use-package org-menu
-    :ensure t)
-#+end_src
 ** Helm Related Packages
 *** Helm-Mode
    #+BEGIN_SRC emacs-lisp
