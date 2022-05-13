@@ -131,42 +131,6 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
     (global-set-key (kbd "M-n") 'hydra-connect/body))
 #+end_src
 * Work Specific
-** Add Hydra to clone standard 'goof' Git repos within '~/hub/worknotes_snyk/testing' directory
-#+begin_src emacs-lisp
-  (when (string= system-name "Samuels-MBP.tampabay.rr.com")
-    (defhydra hydra-goof (:color pink
-				 :hint nil)
-      "
-    ^Git Clone Goof Projects^
-    ^^^^^^^^^^-----------------------------
-    _n_: git clone npm based goof project into ~/hub/worknotes_snyk/testing directory
-    _p_: git clone python based goof project into ~/hub/worknotes_snyk/testing directory
-    _j_: git clone java based goof project into ~/hub/worknotes_snyk/testing directory
-    _a_: git clone gradle based goof project into ~/hub/worknotes_snyk/testing directory
-    _d_: git clone dotnet based goof project into ~/hub/worknotes_snyk/testing directory
-    _g_: git clone go based goof project into ~/hub/worknotes_snyk/testing directory
-    _r_: git clone ruby based goof project into ~/hub/worknotes_snyk/testing directory
-    _e_: git clone elixir based goof project into ~/hub/worknotes_snyk/testing directory
-    _t_: git clone terraform based goof project into ~/hub/worknotes_snyk/testing directory
-    _o_: git clone docker based goof project into ~/hub/worknotes_snyk/testing directory
-    _f_: git clone jar files based goof project into ~/hub/worknotes_snyk/testing directory
-    _q_: quit
-    "
-      ("n" shell-command "git clone https://github.com/snyk/goof ~/hub/worknotes_snyk/testing")
-      ("p" shell-command "git clone https://github.com/JackuB/python-goof ~/hub/worknotes_snyk/testing")
-      ("j" shell-command "git clone https://github.com/snyk/java-goof ~/hub/worknotes_snyk/testing")
-      ("a" shell-command "git clone https://github.com/snyk/java-woof ~/hub/worknotes_snyk/testing")
-      ("d" shell-command "git clone https://github.com/pstember/dotNet-goof ~/hub/worknotes_snyk/testing")
-      ("g" shell-command "git clone https://github.com/pstember/go-goof ~/hub/worknotes_snyk/testing")
-      ("r" shell-command "git clone https://github.com/snyk-matt/ruby-goof ~/hub/worknotes_snyk/testing")
-      ("e" shell-command "git clone https://github.com/snyk/elixir-goof ~/hub/worknotes_snyk/testing")
-      ("t" shell-command "git clone https://github.com/snyk/terraform-goof ~/hub/worknotes_snyk/testing")
-      ("o" shell-command "git clone https://hub.docker.com/r/snykdocker/docker-goof ~/hub/worknotes_snyk/testing")
-      ("f" shell-command "git clone https://github.com/snyk-schmidtty/goof-jar ~/hub/worknotes_snyk/testing")    
-      ("q" nil))
-
-    (global-set-key (kbd "C-!") 'hydra-goof/body))
-#+end_src
 ** Org-Capture templates for Zendesk tickets and Intercom chats
 #+BEGIN_SRC emacs-lisp
   (when (string= system-name "Samuels-MBP.tampabay.rr.com")
@@ -357,16 +321,6 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
    #+END_SRC
 * Useful Packages And QOL Changes To Make Emacs Better
 ** UI
-*** Add '~/.emacs.d/themes/replace-colorthemes/' to load path to add additional themes from 'replace-colorthemes' GitHub repo
-#+begin_src emacs-lisp
-  ;; Added this to add the 'replace-colorthemes' themes from GitHub:
-  ;; https://github.com/emacs-jp/replace-colorthemes
-
-  ;; General idea from this StackOverflow post:
-  ;; https://stackoverflow.com/questions/5982572/how-to-install-emacs-colortheme
-
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/replace-colorthemes/")
-#+end_src
 *** 'Spaceline' Modeline
 #+BEGIN_SRC emacs-lisp
   (use-package spaceline
@@ -957,7 +911,7 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
       (lambda () (interactive)
 	(find-alternate-file ".."))))
 #+END_SRC
-*** Use 'ranger.el' as a replacement for 'Dired'
+*** Enable 'ranger.el' for occassional use
 #+begin_src emacs-lisp
   (use-package ranger
     :ensure t)
@@ -1134,22 +1088,5 @@ n** Add Hydra to connect to different servers ("musimatic.xyz", "sambanya.com", 
   ;; https://www.reddit.com/r/emacs/comments/hxbmda/ytdl_an_emacs_interface_for_youtubedl/
   (use-package ytdl
     :ensure t)
-#+end_src
-
-** Exporting HTML From Org Docs
-*** Add ability to create buttons
-#+begin_src emacs-lisp
-  (org-link-set-parameters "button"
-   :face '(:foreground "green4" :underline t)
-   :follow (lambda (path) (browse-url path))
-   :export (lambda (path desc backend)
-     (when (eq backend 'html)
-       (let ((style (if (string-match "\\(!style\\)\\(.+\\)" desc)
-(match-string 2 desc)
-       ""))
-      (desc (replace-regexp-in-string "\\(!style .+\\)" "" desc)))
-(format "<form><button %s
-   formaction=\"%s\">%s</button></form>" style
-   path desc)))))
 #+end_src
 
