@@ -574,3 +574,10 @@ convert_djvu_to_pdf(){
        echo "Converted $file to .pdf" ;
     done
 }
+
+# Adding 'ihsec' specific function to trigger changes to Emacs config more easily
+ihemacs() {
+    ihsec del samsemacs ;
+    ihsec install https://github.com/SamuelBanya/SamsEmacs samsemacs
+    ihsec set samsemacs
+}

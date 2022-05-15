@@ -71,3 +71,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Add 'jiggle-mouse' based alias:
 alias jmo="cd /Users/samuelbanya/hub/worknotes_snyk/jiggly-mouse && python3 jiggly-mouse.py"
+
+# Adding 'ihsec' specific function to trigger changes to Emacs config more easily
+ihemacs() {
+    ihsec del samsemacs ;
+    ihsec install https://github.com/SamuelBanya/SamsEmacs samsemacs
+    ihsec set samsemacs
+}
