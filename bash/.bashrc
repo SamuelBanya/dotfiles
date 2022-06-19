@@ -434,7 +434,7 @@ alias krita="cd /home/sam/utilities/krita && ./krita-4.2.7.1b-x86_64.appimage"
 alias fixmouse="sudo modprobe -r psmouse && sudo modprobe psmouse proto=imps"
 
 # GNU Stow alias functions to help deploy deotfiles
-deployT440S() { 
+deployT440S() {
 	cd "/home/sam/hub/dotfiles";
 	stow -t ~ "bash/";
 	cd "/home/sam/hub/dotfiles";
@@ -459,9 +459,9 @@ deployX230() {
     cd "/home/sam/hub/dotfiles";
     stow -t ~ "emacs/";
     cd "/home/sam/hub/dotfiles";
-    stow -t ~ "ranger/"; 
+    stow -t ~ "ranger/";
     cd "/home/sam/hub/dotfiles";
-    stow -t ~ "tmux/"; 
+    stow -t ~ "tmux/";
     cd "/home/sam/hub/dotfiles";
     stow -t ~ "xmodmap_for_emacs/";
 }
@@ -581,3 +581,9 @@ ihemacs() {
     ihsec install https://github.com/SamuelBanya/SamsEmacs samsemacs
     ihsec set samsemacs
 }
+
+# Adding Anbernic devices based aliases to easily sync saves between devices to the 'fedoraserver' box:
+alias mpup=rsync -av root@rg351mp:/storage/saves /media/REDHDD/EmulatorsFolder
+alias vup=rsync -av root@rg351v:/storage/saves /media/REDHDD/EmulatorsFolder
+alias vdown=rsync -av /media/REDHDD/EmulatorsFolder/saves root@rg351v:/storage
+alias mpdown=rsync -av /media/REDHDD/EmulatorsFolder/saves root@rg351mp:/storage
