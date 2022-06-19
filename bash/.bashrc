@@ -583,7 +583,7 @@ ihemacs() {
 }
 
 # Adding Anbernic devices based aliases to easily sync saves between devices to the 'fedoraserver' box:
-alias mpup=rsync -av root@rg351mp:/storage/saves /media/REDHDD/EmulatorsFolder
-alias vup=rsync -av root@rg351v:/storage/saves /media/REDHDD/EmulatorsFolder
-alias vdown=rsync -av /media/REDHDD/EmulatorsFolder/saves root@rg351v:/storage
-alias mpdown=rsync -av /media/REDHDD/EmulatorsFolder/saves root@rg351mp:/storage
+alias mpup="rsync -av root@rg351mp:/storage/saves /media/REDHDD/EmulatorsFolder"
+alias vup="rsync -av root@rg351v:/storage/saves /media/REDHDD/EmulatorsFolder"
+alias vdown="rsync -av /media/REDHDD/EmulatorsFolder/saves root@rg351v:/storage"
+alias mpdown="rsync -av /media/REDHDD/EmulatorsFolder/saves root@rg351mp:/storage"
