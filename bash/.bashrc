@@ -587,3 +587,13 @@ alias mpup="rsync -av root@rg351mp:/storage/saves /media/REDHDD/EmulatorsFolder"
 alias vup="rsync -av root@rg351v:/storage/saves /media/REDHDD/EmulatorsFolder"
 alias vdown="rsync -av /media/REDHDD/EmulatorsFolder/saves root@rg351v:/storage"
 alias mpdown="rsync -av /media/REDHDD/EmulatorsFolder/saves root@rg351mp:/storage"
+
+# Adding Emacs specific 'Tramp' mode changes to allow for 'dumb' terminals to not be tripped up with Bash:
+# Borrowed from this GitHub config:
+# https://github.com/Diablo-D3/dotfiles/blob/master/modules/bash/HOME/bashrc#L183
+if [ "$TERM" != "dumb" ]; then
+  PROMPT_COMMAND=precmd
+  trap preexec DEBUG
+else
+  PS1="$ "
+fi
