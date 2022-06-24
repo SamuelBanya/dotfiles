@@ -114,7 +114,7 @@ fi
 
 # Adding 'pywal' based .bashrc revision:
 # (cat ~/.cache/wal/sequences &)
-cat ~/.cache/wal/sequences
+# cat ~/.cache/wal/sequences
 
 # Standard Bash Variable Section:
 # Adjust PS1 variable:
@@ -472,7 +472,7 @@ export DEBEMAIL DEBFULLNAME
 # Adding Devuan specific revision to include PATH variable in /sbin:
 # export PATH=${PATH}:/sbin
 # Adding Pywal specific PATH variable change:
-export PATH="${PATH}:${HOME}/.local/bin/"
+# export PATH="${PATH}:${HOME}/.local/bin/"
 
 # Add Vimm's Lair downloader function set:
 # For 'download3.vimm.net':
