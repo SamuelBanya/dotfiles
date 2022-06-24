@@ -592,7 +592,7 @@ alias mpdown="rsync -av /media/REDHDD/EmulatorsFolder/saves root@rg351mp:/storag
 # Borrowed from this GitHub config:
 # https://github.com/Diablo-D3/dotfiles/blob/master/modules/bash/HOME/bashrc#L183
 if [ "$TERM" != "dumb" ]; then
-  break
+  PS1="${PS1}"
 else
   PS1="$ "
 fi
