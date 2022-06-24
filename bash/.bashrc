@@ -121,8 +121,8 @@ cat ~/.cache/wal/sequences
 declare -- PS1="\\[\\033[01;32m\\]\\u@\\h \\[\\033[01;34m\\]\\w \\[\$(R=\$?; [[ \$R != 0 ]] && echo -n \"\\033[01;31m\")\\]\\\$ \\[\\033[00m\\]"
 
 # fzf specific declarations:
-source /usr/share/bash-completion/completions/fzf
-source /usr/share/fzf/key-bindings.bash
+# source /usr/share/bash-completion/completions/fzf
+# source /usr/share/fzf/key-bindings.bash
 
 # Set the visual and editor to be Emacs by default:
 export VISUAL=emacs
@@ -330,50 +330,50 @@ chgwal() {
 # fzf - Fuzzy Finder Based Configuration Settings:
 
 # 'fzh': Fuzzy Finder File History
-fzh() {
-     eval $(history | fzf +s | sed 's/ *[0-9]* *//');
-}
+# fzh() {
+     # eval $(history | fzf +s | sed 's/ *[0-9]* *//');
+# }
 
 # C-z: fzf history (normal terminal): searches history and pipes it into fuzzy finder
 # bind '"\C-z":"fh\n"'
 
 # 'fzk': Fuzzy Finder Kill
-fzk() {
-     ps -ef | sed 1d | fzf -m | awk '{print $2}' | xargs kill -${1:-9};
-}
+# fzk() {
+     # ps -ef | sed 1d | fzf -m | awk '{print $2}' | xargs kill -${1:-9};
+# }
 
 # TODO: Find a better keybinding for this, doesn't play nice with w3m: C-q: fzk (kill process) (normal terminal): pipes processes into fzf to kill them
 # bind  '"\C-q":"fk\n"'
 
 # 'fcd': Fuzzy Finder Change Directory
-fcd() {
-     DIR=$(find ${1:-*} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf) && cd "$DIR" ;
-}
+# fcd() {
+     # DIR=$(find ${1:-*} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf) && cd "$DIR" ;
+# }
 
 # fcd (change directory): TODO: Think of a good keybinding combo for this:
 # bindkey '"\C-e":"fcd\n"'
 
 # fzd: Fuzzy Finder Dmenu-Type Script To Run Desktop Apps From Terminal
-fzd() {
+# fzd() {
 	# note: xdg-open has a bug with .desktop files, so we cant use that shit
-	selected="$(ls /usr/share/applications | fzf -e)"
-	nohup `grep '^Exec' "/usr/share/applications/$selected" | tail -1 | sed 's/^Exec=//' | sed 's/%.//'` >/dev/null 2>&1&
-}
+	# selected="$(ls /usr/share/applications | fzf -e)"
+	# nohup `grep '^Exec' "/usr/share/applications/$selected" | tail -1 | sed 's/^Exec=//' | sed 's/%.//'` >/dev/null 2>&1&
+# }
 
 # C-o: Fuzzy Finder Dmenu-Type Script To Run Desktop Apps From Terminal:
 # bind '"\C-o":"fzd\n"'
 
-fzw() {
-    w3m $(sed -En 's/^[^"]+href="([^"]+)".*>([^<]+).*/\2\t\1/p' ~/.w3m/bookmark.html | sort -n | fzf -e | cut -f2)
-}
+# fzw() {
+    # w3m $(sed -En 's/^[^"]+href="([^"]+)".*>([^<]+).*/\2\t\1/p' ~/.w3m/bookmark.html | sort -n | fzf -e | cut -f2)
+# }
 
 # C-\: fzw() based keybinding: used to launch bookmarks from ~/.w3m/bookmark.html in w3m quickly from Tmux
 # bind '"\C-\":"fzw\n"'
 
 # reptyr Based function for Fuzzy Finder: this allows you to place a terminal launched program BACK into Tmux
-fzr() {
-    ps -Ao comm= | sort -n  | fzf -e | xargs pidof | xargs reptyr
-}
+# fzr() {
+    # ps -Ao comm= | sort -n  | fzf -e | xargs pidof | xargs reptyr
+# }
 
 # C-': fzr() based keybinding: used to move over standalone terminal applications BACK into Tmux
 # TODO: Fix the keybinding present:
@@ -384,9 +384,9 @@ upd() {
     sudo updatedb;
 }
 
-fzl() {
-    xdg-open "$(locate "*" | fzf -e)" ;
-}
+# fzl() {
+    # xdg-open "$(locate "*" | fzf -e)" ;
+# }
 
 # M-\: fzl() based keybinding: used for Fuzzy Finder Locate to look for files throughout the entire system
 # bind '"\M-\':"fzl\n"'
