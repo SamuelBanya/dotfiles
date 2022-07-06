@@ -157,11 +157,11 @@ alias we="weechat"
 
 alias za="zathura"
 
-alias ytd="youtube-dl -o '~/Downloads/%(title)s-%(id)s.%(ext)s'"
+alias ytd="yt-dlp -o '~/Downloads/%(title)s-%(id)s.%(ext)s'"
 
-alias ytdp="youtube-dl -o '~/Downloads/%(playlist_uploader)s_%(playlist_title)s_%(playlist_index)s_%(title)s.%(ext)s' $1"
+alias ytdp="yt-dlp -o '~/Downloads/%(playlist_uploader)s_%(playlist_title)s_%(playlist_index)s_%(title)s.%(ext)s' $1"
 
-alias ytds="youtube-dl --write-auto-sub --skip-download -o '~/Downloads/%(title)s-%(id)s.%(ext)s' $1 && cd ~/Downloads"
+alias ytds="yt-dlp --write-auto-sub --skip-download -o '~/Downloads/%(title)s-%(id)s.%(ext)s' $1 && cd ~/Downloads"
 
 alias nmt="nmtui"
 
