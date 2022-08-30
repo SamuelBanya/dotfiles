@@ -596,3 +596,6 @@ if [ "$TERM" != "dumb" ]; then
 else
   PS1="$ "
 fi
+
+# Ruby specific variables:
+export GEM_HOME="$HOME/.gem"
