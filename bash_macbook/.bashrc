@@ -79,5 +79,5 @@ ihemacs() {
     ihsec set samsemacs
 }
 
-# Add VS Code's 'code .' command to 'PATH':
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# Add VS Code's 'code .' command:
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
