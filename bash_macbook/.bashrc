@@ -78,3 +78,6 @@ ihemacs() {
     ihsec install https://github.com/SamuelBanya/SamsEmacs samsemacs
     ihsec set samsemacs
 }
+
+# Add VS Code's 'code .' command to 'PATH':
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
