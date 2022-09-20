@@ -80,4 +80,4 @@ ihemacs() {
 }
 
 # Add VS Code's 'code .' command to 'PATH':
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
