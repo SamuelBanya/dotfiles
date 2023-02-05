@@ -500,7 +500,7 @@ vimm-bulkdl-4() {
 }
 
 # For automounting and unmounting 'REDHDD'
-alias mred="sshfs sam@fedoraserver:/media/REDHDD /home/sam/temp/REDHDD"
+alias mred="sshfs sam@homebase:/media/REDHDD /home/sam/temp/REDHDD"
 alias ured="sudo umount /home/sam/temp/REDHDD"
 
 # For automounting and unmounting Manjaro desktop's HDD for streaming purposes
