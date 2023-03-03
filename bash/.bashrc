@@ -599,6 +599,7 @@ fi
 
 # Ruby specific variables:
 export GEM_HOME="$HOME/.gem"
+export GEM_PATH="$HOME/.gem"
 
 # Adding 'rbenv' to allow for better Ruby version management than 'rvm':
 export PATH="$HOME/.rbenv/bin:$PATH"
