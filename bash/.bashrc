@@ -503,6 +503,10 @@ vimm-bulkdl-4() {
 alias mred="sshfs sam@homebase:/media/REDHDD /home/sam/temp/REDHDD"
 alias ured="sudo umount /home/sam/temp/REDHDD"
 
+# For automounting and unmounting 'ARTSCHOOL'
+alias mart="sshfs sam@homebase:/media/ARTSCHOOL /home/sam/temp/ARTSCHOOL"
+alias uart="sudo umount /home/sam/temp/ARTSCHOOL"
+
 # For automounting and unmounting Manjaro desktop's HDD for streaming purposes
 alias mman="sshfs sam@manjarodesktop:/home/sam /home/sam/temp/ManjaroDesktop"
 alias uman="sudo umount /home/sam/temp/ManjaroDesktop"
