@@ -64,7 +64,7 @@ vterm_prompt_end(){
 PS1=$PS1'\[$(vterm_prompt_end)\]'
 
 # 'nvm' configuration:
-export NVM_DIR="$HOME/.nvm" . $(brew --prefix nvm)/nvm.sh 
+export NVM_DIR="~/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
