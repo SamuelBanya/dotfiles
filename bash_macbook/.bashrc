@@ -11,8 +11,10 @@ export GPG_TTY=$(tty)
 alias tm="tmux"
 alias dir="ls"
 
-# Brendan's cool Bash alias for creating containers on the fly for testing purposes
-alias snykclienv='f() { sudo docker run --rm -it --workdir $(pwd) -v $(pwd):$(pwd) -e SNYK_TOKEN="$(snyk config get api)" --entrypoint bash snyk/snyk-cli:$1 };f'
+# Add 'brew' to path for M1 Mac:
+# From here:
+# https://stackoverflow.com/questions/65487249/getting-a-warning-when-installing-homebrew-on-macos-big-sur-m1-chip
+export PATH="/opt/homebrew/bin:$PATH"
 
 # Java specific Bash variables:
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home
@@ -72,20 +74,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add 'jiggle-mouse' based alias:
 alias jmo="cd /Users/samuelbanya/hub/worknotes_snyk/jiggly-mouse && python3 jiggly-mouse.py"
 
-# Adding 'ihsec' specific function to trigger changes to Emacs config more easily
-ihemacs() {
-    ihsec del samsemacs ;
-    ihsec install https://github.com/SamuelBanya/SamsEmacs samsemacs
-    ihsec set samsemacs
-}
-
 # Add VS Code's 'code .' command:
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-
-# Add 'brew' to path for M1 Mac:
-# From here:
-# https://stackoverflow.com/questions/65487249/getting-a-warning-when-installing-homebrew-on-macos-big-sur-m1-chip
-export PATH="/opt/homebrew/bin:$PATH"
 
 # Adding 'gls' to PATH for Emacs based 'Dired' switches to group directories first alphabetically:
 # From here:
