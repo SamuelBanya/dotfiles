@@ -81,3 +81,8 @@ ihemacs() {
 
 # Add VS Code's 'code .' command:
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+# Add 'brew' to path for M1 Mac:
+# From here:
+# https://stackoverflow.com/questions/65487249/getting-a-warning-when-installing-homebrew-on-macos-big-sur-m1-chip
+export PATH=/opt/homebrew/bin:$PATH
