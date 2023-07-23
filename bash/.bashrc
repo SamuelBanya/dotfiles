@@ -620,7 +620,7 @@ export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 source "/etc/profile.d/rvm.sh"
 
 # Archive.org Based Functions:
-# ArchiveUserOutput Function:
+# archiveUserOutput Function:
 archiveUserOutput() {
   # Grab an Archive.org URL, paste it, and hit enter:
   # Ex: https://archive.org/details/sonicyouth2003-07-12md
@@ -631,8 +631,8 @@ archiveUserOutput() {
   uploader=$(ia metadata $initialShow | jq '.metadata.uploader') && ia search $uploader | jq '.identifier' | tr -d \" > ${HOME}/Downloads/output.txt
 }
 
-# DumpArchiveSetlists Function:
-DumpArchiveSetlists() {
+# dumpArchiveSetlists Function:
+dumpArchiveSetlists() {
   file="${HOME}/Downloads/shows.txt"
   setlistDump="${HOME}/Downloads/SetlistDump"
   # Create a dump folder for the setlists:
@@ -646,8 +646,8 @@ DumpArchiveSetlists() {
   done < "$file"
 }
 
-# DownloadArchive Function:
-DownloadArchive() {
+# downloadArchive Function:
+downloadArchive() {
   # Place the desired list of shows in '~/Downloads/downloadShows.txt'
     downloadFile="${HOME}/Downloads/downloadShows.txt"
     downloadDump="${HOME}/Downloads/DownloadDump"
