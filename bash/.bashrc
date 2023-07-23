@@ -618,3 +618,46 @@ export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 # Adding 'rvm' to bashrc
 source "/etc/profile.d/rvm.sh"
+
+# Archive.org Based Functions:
+# ArchiveUserOutput Function:
+archiveUserOutput() {
+  # Grab an Archive.org URL, paste it, and hit enter:
+  # Ex: https://archive.org/details/sonicyouth2003-07-12md
+  echo "Please enter the archive.org URL of the concert bootleg, and hit enter: "
+  read initialShowURL
+  initialShow=initialShowURL | tr -d "https://archive.org/details/"
+  # Grab all of the shows that the user has and dump them into "~/Downloads" to later view:
+  uploader=$(ia metadata $initialShow | jq '.metadata.uploader') && ia search $uploader | jq '.identifier' | tr -d \" > ${HOME}/Downloads/output.txt
+}
+
+# DumpArchiveSetlists Function:
+DumpArchiveSetlists() {
+  file="${HOME}/Downloads/shows.txt"
+  setlistDump="${HOME}/Downloads/SetlistDump"
+  # Create a dump folder for the setlists:
+  if [ ! -d "$setlistDump" ]; then
+      mkdir -p $setlistDump
+  fi
+  while read -r line
+  do
+      echo $line
+      ia download $line --destdir=$setlistDump --glob="*.txt"
+  done < "$file"
+}
+
+# DownloadArchive Function:
+DownloadArchive() {
+  # Place the desired list of shows in '~/Downloads/downloadShows.txt'
+    downloadFile="${HOME}/Downloads/downloadShows.txt"
+    downloadDump="${HOME}/Downloads/DownloadDump"
+    # Create a dump folder for the setlists:
+    if [ ! -d "$downloadDump" ]; then
+        mkdir -p $downloadDump
+    fi
+    while read -r line
+    do
+        echo $line
+        ia download $line --destdir=$downloadDump --glob="*.flac|*.txt|*.jpg"
+    done < "$downloadFile"
+}
