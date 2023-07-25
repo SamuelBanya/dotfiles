@@ -7,9 +7,6 @@ declare -- PS1="\\[\\033[01;32m\\]\\u@\\h \\[\\033[01;34m\\]\\w \\[\$(R=\$?; [[ 
 # GitHub GPG specific:
 export GPG_TTY=$(tty)
 
-# Add 'dotnet-tools' to PATH:
-export PATH="%home%/.dotnet/tools"
-
 # Aliases:
 alias tm="tmux"
 alias dir="ls"
