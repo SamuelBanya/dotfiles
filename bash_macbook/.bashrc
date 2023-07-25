@@ -61,10 +61,10 @@ vterm_printf(){
 # This function is taken from the related GitHub page that allows the 'PS1' variable to contain the necessary information
 # for directory tracking in 'vterm' within Emacs:
 # https://github.com/akermu/emacs-libvterm#user-content-directory-tracking-and-prompt-tracking
-vterm_prompt_end(){
-    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
-}
-PS1=$PS1'\[$(vterm_prompt_end)\]'
+# vterm_prompt_end(){
+    # vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+# }
+# PS1=$PS1'\[$(vterm_prompt_end)\]'
 
 # 'nvm' configuration:
 export NVM_DIR=~/.nvm
