@@ -31,6 +31,3 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 # From here:
 # https://github.com/d12frosted/homebrew-emacs-plus/issues/383
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
-# Adding path for '.dotnet/tools':
-export PATH="~/.dotnet/tools"
