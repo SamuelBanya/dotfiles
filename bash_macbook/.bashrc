@@ -7,6 +7,9 @@ declare -- PS1="\\[\\033[01;32m\\]\\u@\\h \\[\\033[01;34m\\]\\w \\[\$(R=\$?; [[ 
 # GitHub GPG specific:
 export GPG_TTY=$(tty)
 
+# Add 'dotnet-tools' to PATH:
+export PATH="%home%/.dotnet/tools"
+
 # Aliases:
 alias tm="tmux"
 alias dir="ls"
@@ -68,8 +71,8 @@ export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# export PATH="$PATH:$HOME/.rvm/bin"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Add 'jiggle-mouse' based alias:
 alias jmo="cd /Users/samuelbanya/hub/worknotes_snyk/jiggly-mouse && python3 jiggly-mouse.py"
