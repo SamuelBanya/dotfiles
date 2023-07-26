@@ -31,3 +31,8 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 # From here:
 # https://github.com/d12frosted/homebrew-emacs-plus/issues/383
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# Adding 'DOTNET_ROOT' because of AWS Codeartifact:
+# Related StackOverflow post:
+# https://stackoverflow.com/questions/74895147/how-to-fix-dotnet-ef-tool-net-location-not-found
+export DOTNET_ROOT="/usr/share/dotnet"
