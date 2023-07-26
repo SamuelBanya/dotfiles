@@ -35,4 +35,4 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # Adding 'DOTNET_ROOT' because of AWS Codeartifact:
 # Related StackOverflow post:
 # https://stackoverflow.com/questions/74895147/how-to-fix-dotnet-ef-tool-net-location-not-found
-export DOTNET_ROOT="/usr/local/share/dotnet"
+# export DOTNET_ROOT="/usr/local/share/dotnet"
