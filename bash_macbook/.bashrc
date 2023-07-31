@@ -38,4 +38,4 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # export DOTNET_ROOT="/usr/local/share/dotnet"
 
 # Adding 'NODE_TLS_REJECT_UNAUTHORIZED' environment variable to allow for 'yarn build' to work on the M1 Macbook:
-export NODE_TLS_REJECT_UNAUTHORIZED=1
+export NODE_TLS_REJECT_UNAUTHORIZED=0
