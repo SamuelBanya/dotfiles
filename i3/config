@@ -188,7 +188,7 @@ bar {
 # NOTE:
 # Sam's Custom Config Section:
 # Launch Emacs with Super + E:
-bindsym $mod+e exec emacs
+bindsym $mod+m exec emacs
 
 # Launch Firefox with Super + F:
 bindsym $mod+i exec firefox
