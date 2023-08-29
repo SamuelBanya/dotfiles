@@ -191,4 +191,4 @@ bar {
 bindsym $mod+e exec emacs
 
 # Launch Firefox with Super + F:
-bindsym $mod+f exec firefox
+bindsym $mod+i exec firefox
