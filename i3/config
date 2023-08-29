@@ -192,3 +192,6 @@ bindsym $mod+m exec emacs
 
 # Launch Firefox with Super + F:
 bindsym $mod+i exec firefox
+
+# Swap caps with control with 'setxkbmap':
+exec "setxkbmap -option ctrl:swapcaps"
