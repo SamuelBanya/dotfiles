@@ -8,7 +8,7 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-declare -- PS1="\\[\\033[01;32m\\]\\u@\\h \\[\\033[01;34m\\]\\w \\[\$(R=\$?; [[ \$R != 0 ]] && echo -n \"\\033[01;31m\")\\]\\\$ \\[\\033[00m\\] \$(parse_git_branch)\[\033[00m\] $ "
+declare -- PS1="\\[\\033[01;32m\\]\\u@\\h \\[\\033[01;34m\\]\\w \\[\$(R=\$?; [[ \$R != 0 ]] && echo -n \"\\033[01;31m\")\\]\\\$ \\[\\033[00m\\]\$(parse_git_branch)\[\033[00m\] $ "
 
 # GitHub GPG specific:
 export GPG_TTY=$(tty)
