@@ -661,3 +661,6 @@ downloadArchive() {
         ia download $line --destdir=$downloadDump --glob="*.flac|*.txt|*.jpg"
     done < "$downloadFile"
 }
+
+# Adding alias to peek at i3 config for hints:
+alias checki3='less /home/sam/hub/dotfiles/i3/config'
