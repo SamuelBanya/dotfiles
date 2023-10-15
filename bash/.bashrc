@@ -668,6 +668,6 @@ alias checki3='less /home/sam/hub/dotfiles/i3/config'
 # Adding 'devstation' specific modification to utilize 'pcem' as a Bash alias since I had to compile this from source:
 # Related reference links:
 # https://github.com/t94xr/PCem_Linux
-if [ "$(hostname)" = "devstation "]; then
+if [ "$(hostname)" = "devstation" ]; then
     alias pcem='/opt/pcem17/bin/pcem'
 fi
