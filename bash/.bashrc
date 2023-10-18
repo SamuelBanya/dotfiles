@@ -674,5 +674,8 @@ fi
 
 # Adding 'dotnet' to path for 'devstation' machine:
 if [ "$(hostname)" = "devstation" ]; then
-    export PATH="$PATH:/usr/bin/dotnet"
+    # Making sure I don't duplicate the 'dotnet' path twice:
+    if [[ ":$PATH:" != *":/usr/bin/dotnet:"* ]]; then
+        export PATH="$PATH:/usr/bin/dotnet"
+    fi
 fi
