@@ -671,3 +671,8 @@ alias checki3='less /home/sam/hub/dotfiles/i3/config'
 if [ "$(hostname)" = "devstation" ]; then
     alias pcem='/opt/pcem17/bin/pcem'
 fi
+
+# Adding 'dotnet' to path for 'devstation' machine:
+if [ "$(hostname)" = "devstation" ]; then
+    export PATH="$PATH:/usr/bin/dotnet"
+fi
