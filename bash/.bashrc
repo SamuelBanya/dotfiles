@@ -682,5 +682,5 @@ fi
 
 # Termux specific alias for 'yt-dlp':
 if [ "$(hostname)" = "localhost" ]; then
-   alias std='cd /data/data/com.termux/files/home/storage/downloads && yt-dlp'
+   alias std='cd /data/data/com.termux/files/home/storage/downloads/ytdump && yt-dlp'
 fi
