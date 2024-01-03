@@ -1,0 +1,3 @@
+source ~/.intellimacs/spacemacs.vim
+
+set which-key
