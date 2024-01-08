@@ -684,3 +684,5 @@ fi
 if [ "$(hostname)" = "localhost" ]; then
    alias std='cd /data/data/com.termux/files/home/storage/downloads/ytdump && yt-dlp'
 fi
+
+export PATH="$PATH:$HOME/.local/share/yabridge"
