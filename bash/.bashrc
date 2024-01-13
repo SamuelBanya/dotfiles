@@ -525,7 +525,7 @@ vimm-extract() {
 
     cd "$src_path" && \
         for file in *.7z; do \
-            7z x "$file" -o"$dest_path" && echo "Extraction of $file successful"; \
+            7z x "$file" -o"$dest_path" -aoa && echo "Extraction of $file successful"; \
         done
 }
 
