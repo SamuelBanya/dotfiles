@@ -511,7 +511,7 @@ vimm-bulkdl-4() {
 
 vimm-bulkdl-gc() {
     file=$1
-    while IFS= read line; do vimm-dl-gc $line; done < $file
+    while IFS= read line; do vimm-gc $line; done < $file
 }
 
 # For automounting and unmounting 'REDHDD'
