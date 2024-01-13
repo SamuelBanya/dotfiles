@@ -489,6 +489,16 @@ vimm-dl-4() {
     wget --header "Referer: $1" --header "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0" --content-disposition "https://download4.vimm.net/download/?mediaId=$id"
 }
 
+# For Gamecube '.nkit.iso':
+vimm-gc() {
+    url=$1
+    id="$(wget -qO- "$url" | grep 'name="mediaId' | sed 's/.*Id"\s*value="\([^"]*\)".*/\1/')"
+    wget --header "Referer: $1" \
+         --header "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0" \
+         --content-disposition "https://download3.vimm.net/download/?mediaId=$id&alt=1"
+}
+
+
 vimm-bulkdl-3() {
     file=$1
     while IFS= read line; do vimm-dl-3 $line; done < $file
@@ -497,6 +507,11 @@ vimm-bulkdl-3() {
 vimm-bulkdl-4() {
     file=$1
     while IFS= read line; do vimm-dl-4 $line; done < $file
+}
+
+vimm-bulkdl-gc() {
+    file=$1
+    while IFS= read line; do vimm-dl-gc $line; done < $file
 }
 
 # For automounting and unmounting 'REDHDD'
