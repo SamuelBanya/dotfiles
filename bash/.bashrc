@@ -514,6 +514,21 @@ vimm-bulkdl-gc() {
     while IFS= read line; do vimm-gc $line; done < $file
 }
 
+vimm-extract() {
+    src_path="$1"
+    dest_path="$2"
+
+    if [ -z "$src_path" ] || [ -z "$dest_path" ]; then
+        echo "Usage: vimm-extract <source_path> <destination_path>"
+        return 1
+    fi
+
+    cd "$src_path" && \
+        for file in *.7z; do \
+            7z x "$file" -o"$dest_path" && echo "Extraction of $file successful"; \
+        done
+}
+
 # For automounting and unmounting 'REDHDD'
 alias mred="sshfs sam@homebase:/media/REDHDD /home/sam/temp/REDHDD"
 alias ured="sudo umount /home/sam/temp/REDHDD"
