@@ -529,6 +529,10 @@ vimm-extract() {
         done
 }
 
+vimm-check-frag() {
+    sudo filefrag -v /media/sam/4929-96E2/ROMs/*.nkit.iso
+}
+
 # For automounting and unmounting 'REDHDD'
 alias mred="sshfs sam@homebase:/media/REDHDD /home/sam/temp/REDHDD"
 alias ured="sudo umount /home/sam/temp/REDHDD"
