@@ -42,3 +42,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # Related StackOverflow post:
 # https://stackoverflow.com/questions/74895147/how-to-fix-dotnet-ef-tool-net-location-not-found
 # export DOTNET_ROOT="/usr/local/share/dotnet"
+
+# Adding proxy changes:
+export http_proxy="10.0.0.106:3128"
+export https_proxy="10.0.0.106:3128"
