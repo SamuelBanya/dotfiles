@@ -43,5 +43,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # https://stackoverflow.com/questions/74895147/how-to-fix-dotnet-ef-tool-net-location-not-found
 # export DOTNET_ROOT="/usr/local/share/dotnet"
 
+# NOTE (12-19-2024):
+# Commenting this out for now as requested by work:
 # Adding 'NODE_TLS_REJECT_UNAUTHORIZED' environment variable to allow for 'yarn build' to work on the M1 Macbook:
-export NODE_TLS_REJECT_UNAUTHORIZED=0
+# export NODE_TLS_REJECT_UNAUTHORIZED=0
