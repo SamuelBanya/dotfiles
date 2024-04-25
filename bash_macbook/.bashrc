@@ -49,4 +49,5 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # export NODE_TLS_REJECT_UNAUTHORIZED=0
 
 # 04-25-2024:
-alias gb="git branch --show-current"
+# Adding 'br' command to grab current branch so that I can quickly refer to it later with 'gb' for 'git branch' to merge master into it later on:
+alias br='gb=$(git branch --show-current)'
