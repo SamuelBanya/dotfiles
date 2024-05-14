@@ -118,7 +118,14 @@ fi
 
 # Standard Bash Variable Section:
 # Adjust PS1 variable:
-declare -- PS1="\\[\\033[01;32m\\]\\u@\\h \\[\\033[01;34m\\]\\w \\[\$(R=\$?; [[ \$R != 0 ]] && echo -n \"\\033[01;31m\")\\]\\\$ \\[\\033[00m\\]"
+parse_git_branch() {
+    local branch=$(git branch 2>/dev/null | sed -n '/^\* /s/^* \(.*\)/(\1)/p')
+    if [ -n "$branch" ]; then
+        echo "$branch"
+    fi
+}
+
+declare -- PS1="\\[\\033[01;32m\\]\\u@\\h \\[\\033[01;34m\\]\\w \\[\$(parse_git_branch)\\]\\$ \\[\\033[00m\\]"
 
 # fzf specific declarations:
 # source /usr/share/bash-completion/completions/fzf
