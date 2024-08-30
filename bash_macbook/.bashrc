@@ -37,6 +37,13 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 # From here:
 # https://github.com/d12frosted/homebrew-emacs-plus/issues/383
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+if [[ $(uname -m) == 'arm64' ]]; then
+  # M1/M2 Mac
+  export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+else
+  # Intel Mac
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+fi
 
 # Adding 'DOTNET_ROOT' because of AWS Codeartifact:
 # Related StackOverflow post:
@@ -51,3 +58,8 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # 04-25-2024:
 # Adding 'br' command to grab current branch so that I can quickly refer to it later with 'gb' for 'git branch' to merge master into it later on:
 alias br='gb=$(git branch --show-current)'
+
+# Add GoPath to home directory on MacOS:
+export GOPATH=$HOME/go
+
+export PATH=$PATH:$GOPATH/bin
