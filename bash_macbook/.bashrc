@@ -63,3 +63,6 @@ alias br='gb=$(git branch --show-current)'
 export GOPATH=$HOME/go
 
 export PATH=$PATH:$GOPATH/bin
+
+# Adding 'doom' to PATH:
+export PATH="$HOME/.config/emacs/bin:$PATH"
