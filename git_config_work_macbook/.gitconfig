@@ -1,0 +1,12 @@
+[includeIf "gitdir:~/hub/"]
+    path = ~/.gitconfig-hub
+
+[includeIf "gitdir:~/projects/"]
+    path = ~/.gitconfig-projects
+
+[core]
+        editor = emacs
+        autocrlf = input
+
+[merge]
+    tool = emacs
