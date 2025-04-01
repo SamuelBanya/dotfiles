@@ -56,7 +56,7 @@ fi
 # export NODE_TLS_REJECT_UNAUTHORIZED=0
 
 # 04-25-2024:
-# Adding 'br' command to grab current branch so that I can quickly refer to it later with 'gb' for 'git branch' to merge master into it later on:
+# Adding 'br' command to grab current branch so that I can quickly refer to it later with 'gb' for 'git branch' to merge master into it later on to make things easier:
 alias br='gb=$(git branch --show-current)'
 
 # Add GoPath to home directory on MacOS:
