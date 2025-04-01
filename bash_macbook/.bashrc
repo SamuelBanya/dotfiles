@@ -61,7 +61,6 @@ alias br='gb=$(git branch --show-current)'
 
 # Add GoPath to home directory on MacOS:
 export GOPATH=$HOME/go
-
 export PATH=$PATH:$GOPATH/bin
 
 # Adding 'doom' to PATH:
