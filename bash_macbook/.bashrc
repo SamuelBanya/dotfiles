@@ -65,3 +65,10 @@ export PATH=$PATH:$GOPATH/bin
 
 # Adding 'doom' to PATH:
 export PATH="$HOME/.config/emacs/bin:$PATH"
+
+# Only add Doom Emacs to PATH on Tina's MacBook Air
+if [[ "$(hostname)" == "Tinas-MacBook-Air.local" ]]; then
+  alias doom='~/.emacs.d/bin/doom'
+fi
+
+
