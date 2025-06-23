@@ -553,11 +553,11 @@ alias mman="sshfs sam@manjarodesktop:/home/sam /home/sam/temp/ManjaroDesktop"
 alias uman="sudo umount /home/sam/temp/ManjaroDesktop"
 
 # For allowing the backup drives on the Dell Optiplex to be mirrored properly:
-# EDIT: Changed the resulting drive to be 'CTSSD' due to swapping out for a Crucial SSD on the file server:
+# EDIT: Swapped to match Linux Mint drives:
 mirrorDrives() {
-    SOURCE='/media/REDHDD/'
-    DEST='/media/CTSSD/'
-    rsync -ahvAE --delete --stats $SOURCE $DEST 2>&1
+    SOURCE='/media/treasurehoard/'
+    DEST='/media/hoardbackup/'
+    rsync -av --progress --delete $SOURCE $DEST 2>&1
 }
 
 # Adding 'NodeJS' support to 'notestation' computer
