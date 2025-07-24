@@ -642,23 +642,12 @@ else
   PS1="$ "
 fi
 
-# Ruby specific variables:
-export GEM_HOME="$HOME/.gem"
-export GEM_PATH="$HOME/.gem"
-
-# Adding 'rbenv' to allow for better Ruby version management than 'rvm':
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Adding 'ca-certificates' location to help on Ubuntu, specifically Linux Mint installations:
 export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
-
-# Adding 'rvm' to bashrc
-source "/etc/profile.d/rvm.sh"
 
 # Archive.org Based Functions:
 # archiveUserOutput Function:
