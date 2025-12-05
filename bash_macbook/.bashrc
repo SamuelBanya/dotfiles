@@ -71,4 +71,8 @@ if [[ "$(hostname)" == "Tinas-MacBook-Air.local" ]]; then
   alias doom='~/.emacs.d/bin/doom'
 fi
 
+# Adding Python based PATH variable sections:
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 
+# Created by `pipx` on 2025-05-06 03:51:30
+export PATH="$PATH:/Users/sam/.local/bin"
