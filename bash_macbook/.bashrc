@@ -76,3 +76,6 @@ export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 
 # Created by `pipx` on 2025-05-06 03:51:30
 export PATH="$PATH:/Users/sam/.local/bin"
+
+# Add Dotnet specific PATH installed from 'brew':
+export PATH="/usr/local/share/dotnet:$PATH"
