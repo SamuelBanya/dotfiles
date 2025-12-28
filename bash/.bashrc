@@ -552,14 +552,6 @@ alias uart="sudo umount /home/sam/temp/ARTSCHOOL"
 alias mman="sshfs sam@manjarodesktop:/home/sam /home/sam/temp/ManjaroDesktop"
 alias uman="sudo umount /home/sam/temp/ManjaroDesktop"
 
-# For allowing the backup drives on the Dell Optiplex to be mirrored properly:
-# EDIT: Swapped to match Linux Mint drives:
-mirrorDrives() {
-    SOURCE='/media/treasurehoard/'
-    DEST='/media/hoardbackup/'
-    rsync -av --progress --delete $SOURCE $DEST 2>&1
-}
-
 # Adding 'NodeJS' support to 'notestation' computer
 # Also, add 'yarn' package manager to 'notestation' computer
 if [ "$HOSTNAME" = "notestation" ]; then
@@ -716,3 +708,50 @@ if [ "$(hostname)" = "localhost" ]; then
 fi
 
 export PATH="$PATH:$HOME/.local/share/yabridge"
+
+# Data backup aliases:
+mirrorDrives() {
+    SOURCE='/media/treasurehoard/'
+    DEST='/media/hoardbackup/'
+    rsync -av --progress --delete $SOURCE $DEST 2>&1
+}
+
+# Adding aliases for mounting drives onto mini PC:
+mountBackups() {
+    sudo mount UUID=0BEA6066002B608E /media/treasurehoard
+    sudo mount UUID=6E0BD8C041A46635 /media/hoardbackup
+}
+
+# Adding alias to sync notes between hub folder verison of notes and harddrive:
+syncNotes() {
+    SOURCE='/home/sam/hub/notes/'
+    DEST='/media/treasurehoard/notes/'
+    rsync -av --progress --delete "$SOURCE" "$DEST"
+}
+
+# Adding alias to facilitate the entire harddrive mounting process
+backupNotes() {
+    mountBackups || return 1
+
+    mountpoint -q /media/treasurehoard || { echo "treasurehoard not mounted"; return 1; }
+    mountpoint -q /media/hoardbackup || { echo "hoardbackup not mounted"; return 1; }
+
+    syncNotes &&
+    mirrorDrives
+}
+
+# Adding newer alias to just mount drives upon connecting the drives to the mini PC:
+backupFiles() {
+    mountBackups || return 1
+
+    mountpoint -q /media/treasurehoard || { echo "treasurehoard not mounted"; return 1; }
+    mountpoint -q /media/hoardbackup || { echo "hoardbackup not mounted"; return 1; }
+
+    mirrorDrives
+}
+
+# Unmount drives:
+unmountDrives() {
+    sudo umount /media/treasurehoard
+    sudo umount /media/hoardbackup
+}
