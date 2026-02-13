@@ -763,4 +763,5 @@ if [ "$WIN_HOST" = "LPW00PZC1" ]; then
    export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
    export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
    export BROWSER="wslview"
+   export GITHUB_TOKEN="$(pass show github.com/codex-mcp-pat)"
 fi
