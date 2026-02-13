@@ -1,10 +1,9 @@
-<<<<<<< Updated upstream
 m:/media
-':/media/treasurehoard
+':/Users/tinale
 q:/home/sam
 j:/home/sam/Downloads
 u:/home/sam/Downloads
-d:/home/sam/Downloads
+d:/Users/sam/Downloads
 v:/home/sam/videos/queue
 s:/home/sam/hub/scripts
 w:/home/sam/hub/public_html
@@ -15,6 +14,3 @@ b:/home/sam/music
 r:/home/sam/documents/FoodFolder/RecipesFolder
 e:/home/sam/emulators
 t:/home/sam/temp
-=======
-':/Users/sam/hub/dotfiles/ranger/.config/ranger
->>>>>>> Stashed changes
