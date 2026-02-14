@@ -713,13 +713,19 @@ export PATH="$PATH:$HOME/.local/share/yabridge"
 mirrorDrives() {
     SOURCE='/media/treasurehoard/'
     DEST='/media/hoardbackup/'
-    rsync -av --progress --delete $SOURCE $DEST 2>&1
+    rsync -av --progress --delete --exclude='MullvadNum.txt' $SOURCE $DEST 2>&1
 }
 
 # Adding aliases for mounting drives onto mini PC:
-mountBackups() {
+mountDrives() {
     sudo mount UUID=0BEA6066002B608E /media/treasurehoard
     sudo mount UUID=6E0BD8C041A46635 /media/hoardbackup
+}
+
+# Unmount drives:
+unmountDrives() {
+    sudo umount /media/treasurehoard
+    sudo umount /media/hoardbackup
 }
 
 # Adding alias to sync notes between hub folder verison of notes and harddrive:
@@ -748,12 +754,6 @@ backupFiles() {
     mountpoint -q /media/hoardbackup || { echo "hoardbackup not mounted"; return 1; }
 
     mirrorDrives
-}
-
-# Unmount drives:
-unmountDrives() {
-    sudo umount /media/treasurehoard
-    sudo umount /media/hoardbackup
 }
 
 # Apply corporate CA settings only on work machine
