@@ -79,3 +79,6 @@ export PATH="$PATH:/Users/sam/.local/bin"
 
 # Add Dotnet specific PATH installed from 'brew':
 export PATH="/usr/local/share/dotnet:$PATH"
+
+# Adding Macports to path:
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
