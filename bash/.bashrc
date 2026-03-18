@@ -765,9 +765,3 @@ if [ "$WIN_HOST" = "LPW00PZC1" ]; then
    export BROWSER="wslview"
    export GITHUB_PAT_TOKEN="$(pass show github.com/codex-mcp-pat)"
 fi
-
-# Add Deno to path:
-if ["$(hostname)" == "mediastation"]; then
-   export DENO_INSTALL="$HOME/.deno"
-   export PATH="$PATH:/$DENO_INSTALL/bin"
-fi
