@@ -767,7 +767,7 @@ if [ "$WIN_HOST" = "LPW00PZC1" ]; then
 fi
 
 # Add Deno to path:
-if ["${hostname} == "mediastation"] then
+if ["${hostname}" == "mediastation"] then
    export DENO_INSTALL="$HOME/.deno"
    export PATH="$PATH:/$DENO_INSTALL/bin"
 fi
