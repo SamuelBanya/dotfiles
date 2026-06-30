@@ -150,3 +150,19 @@ if [ "$WIN_HOST" = "LPW00PZC1" ]; then
         done
     }
 fi
+
+# Remove Windows nvm/Codex paths from WSL PATH
+export PATH=$(echo "$PATH" \
+  | tr ':' '\n' \
+  | grep -v '/mnt/c/nvm4w' \
+  | grep -v '/mnt/c/Users/sabanya/AppData/Local/nvm' \
+  | paste -sd:)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Load GitHub token only on work WSL machine, from a local-only file
+if [ "$WIN_HOST" = "LPW00PZC1" ] && [ -f "$HOME/hub/GitHubTokenCheck/github_token" ]; then
+    export GITHUB_TOKEN="$(tr -d '\r\n' < "$HOME/hub/GitHubTokenCheck/github_token")"
+fi
