@@ -767,6 +767,8 @@ if [ "$WIN_HOST" = "LPW00PZC1" ]; then
 fi
 
 # Adding pyenv changes for MX Station:
+# From this GitHub issues page:
+# https://github.com/pyenv/pyenv-installer/issues/103
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
