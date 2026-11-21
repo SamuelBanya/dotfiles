@@ -766,6 +766,11 @@ if [ "$WIN_HOST" = "LPW00PZC1" ]; then
    export GITHUB_PAT_TOKEN="$(pass show github.com/codex-mcp-pat)"
 fi
 
+# Adding pyenv changes for MX Station:
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 if [ "$(hostname)" = "MXStation" ]; then
     eval "$(pyenv virtualenv-init -)"
 fi
