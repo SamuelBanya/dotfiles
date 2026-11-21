@@ -16,6 +16,11 @@
 # logout, then log back in to fluxbox session
 localize_fluxbox_menu-mx
 
+# export Qt variables
+export QT_QPA_PLATFORMTHEME=gtk2
+export QT_PLATFORMTHEME=gtk2
+export QT_PLATFORM_PLUGIN=gtk2
+
 # mx-welcome if configured to autostart
 if [ -e $HOME/.config/autostart/mx-welcome.desktop ]; then
 # launch mx-welcome
@@ -27,25 +32,34 @@ xdg-user-dirs-update
 # Update common folders names to match current locale
 xdg-user-dirs-gtk-update
 
+#special, add bookmark in fluxbox
+#note this will apply to all desktop sessions, not just fluxbox
+#only do once
+if [ ! -e "$HOME/.fluxbox/bookmarkcheck" ]; then
+    touch "$HOME/.fluxbox/bookmarkcheck"
+#check to make sure doesn't exist already
+    if [ -z $(grep ".fluxbox" $HOME/.config/gtk-3.0/bookmarks) ]; then
+#add bookmark
+    echo "file://$HOME/.fluxbox Fluxbox" >> $HOME/.config/gtk-3.0/bookmarks
+    fi
+fi
+
+# start spice-vdagent in KVM/Qemu 
+if [ -x /usr/bin/spice-vdagent ]; then
+   (sleep 5 && pidof -q  spice-vdagentd && ! pidof -q  spice-vdagent &&  /usr/bin/spice-vdagent)&
+fi
+
 #start a compositor if using complicated conkies
-#compton &
-
-#set number of seconds before inactive screen turns off
-xset -dpms && xset s 600
-
-#add system monitors 
-#gkrellm &
+#picom --dbus --config $HOME/.config/picom/picom.conf -b &
 
 # arandr genrated screenlayout 
 # before conky
 
-# export Qt variables
-export QT_QPA_PLATFORMTHEME=gtk2
-export QT_PLATFORMTHEME=gtk2
-export QT_PLATFORM_PLUGIN=gtk2
-
 # add selected tint2 panel
 tint2session 
+
+# control touchpad interference
+# touchpad-indicator &
 
 # add desktop icons
 idesktoggle idesk on 1>/dev/null 2>&1 &
@@ -70,21 +84,26 @@ volumeicon -c volumeicon-fluxbox &
 #place clipboard on the toolbar
 xfce4-clipman &
 
+#start screensaver 
+#xscreensaver &
+
 #put brightness controller and battery monitor on toolbar
 #tint2 has its own battery widget so this is unnecessaary
 #xfce4-power-manager &
 
+### for optional use with the fluxbox toolbar ###
+#cbatticon &
+
 # start user accessibility bus - if not already running
 /usr/libexec/at-spi-bus-launcher --launch-immediately  &
 
-#update app  menu if it doesn't exist
+# update app  menu if it doesn't exist
 if [ ! -f $HOME/.fluxbox/submenus/full_menu ]; then
     command -v mxfb-menu-generator && mxfb-menu-generator
 fi
 
-#get last background selected
-#~/.fehbg
-nitrogen --restore
+# add system monitors 
+#gkrellm &
 
 # Debian-local change:
 #   - fbautostart has been added with a quick hack to check to see if it
@@ -95,19 +114,35 @@ if [ $? -eq 0 ]; then
 fi
 
 # put apt-notifier on the toolbar
-(sleep 6; /usr/bin/apt-notifier) &
+mx-updater-autostart &
 
 # start spice-vdagent in KVM/Qemu 
 if [ -x /usr/bin/spice-vdagent ]; then
    pidof -q spice-vdagentd && /usr/bin/spice-vdagent
 fi
 
+# get last background selected
+#~/.fehbg
+# restore from saved background if exists and nitrogen installed
+if [ -x "/usr/bin/nitrogen" ]; then
+    if [ -e "$HOME/.config/nitrogen/bg-saved.cfg" ]; then
+        (sleep 1; nitrogen --restore & )
+    else
+        # set default background
+        (sleep 1; nitrogen --set-scaled /usr/share/backgrounds/default25.png)
+    fi
+fi
+
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
 
-# Adding Xmodmap changes to swap Ctrl with Caps for Emacs style keybindings:
-xmodmap ~/.xmodmap
+# screenblanking added by mx-tweak
+$HOME/.config/MX-Linux/screenblanking-mxtweak &
+
+# Swap CTRL with CAPS for full effect as God intended:
+setxkbmap -option ctrl:swapcaps
 
 exec fluxbox
 # or if you want to keep a log:
 # exec fluxbox -log ~/.fluxbox/log
+

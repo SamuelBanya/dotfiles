@@ -765,3 +765,7 @@ if [ "$WIN_HOST" = "LPW00PZC1" ]; then
    export BROWSER="wslview"
    export GITHUB_PAT_TOKEN="$(pass show github.com/codex-mcp-pat)"
 fi
+
+if [ "$(hostname)" = "MXStation" ]; then
+    eval "$(pyenv virtualenv-init -)"
+fi
