@@ -766,13 +766,13 @@ if [ "$WIN_HOST" = "LPW00PZC1" ]; then
    export GITHUB_PAT_TOKEN="$(pass show github.com/codex-mcp-pat)"
 fi
 
-# Adding pyenv changes for MX Station:
+# Adding 'pyenv' changes for MX Station:
 # From this GitHub issues page:
 # https://github.com/pyenv/pyenv-installer/issues/103
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 if [ "$(hostname)" = "MXStation" ]; then
-    eval "$(pyenv virtualenv-init -)"
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    alias ollama-start='$HOME/ollama/start.sh'
+    alias webui-start='(source $HOME/ollama/webui-venv/bin/activate && DATA_DIR=$HOME/ollama/webui-data open-webui serve)'
 fi
